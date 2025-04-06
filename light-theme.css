@@ -1,0 +1,196 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7fa;
+    color: #1c1e21;
+    overflow: hidden;
+  }
+  
+  /* Background Grid */
+  .background-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#d1d9e6 10%, transparent 60%),
+                repeating-linear-gradient(#e3e7ed 0 1px, transparent 1px 30px),
+                repeating-linear-gradient(90deg, #e3e7ed 0 1px, transparent 1px 30px);
+    animation: moveGrid 40s linear infinite;
+    opacity: 0.1;
+    z-index: 0;
+  }
+  
+  /* Floating Particles */
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background: url('https://i.ibb.co/3s1dp5Z/particles-light.png') repeat;  */
+    animation: drift 60s linear infinite;
+    z-index: 0;
+    opacity: 0.04;
+  }
+  
+  @keyframes drift {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+  }
+  
+  @keyframes moveGrid {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-100px, -200px); }
+  }
+  
+  /* Main UI */
+  .main-ui {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* AI Core Animation */
+  .ai-core-animation {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .center-glow {
+    fill: #6c63ff;
+    filter: drop-shadow(0 0 10px #b3aaff);
+    animation: pulse 3s infinite;
+  }
+  
+  .pulse-ring {
+    fill: none;
+    stroke: #b3aaff;
+    stroke-width: 2;
+    opacity: 0.5;
+    animation: expandPulse 3s infinite ease-out;
+  }
+  
+  .orbit-ring {
+    fill: none;
+    stroke: rgba(108, 99, 255, 0.3);
+    stroke-dasharray: 10, 5;
+    stroke-width: 1;
+    animation: spin 10s linear infinite;
+  }
+  
+  @keyframes expandPulse {
+    0% { r: 70; opacity: 0.6; }
+    100% { r: 120; opacity: 0; }
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); transform-origin: 100px 100px; }
+    to { transform: rotate(360deg); transform-origin: 100px 100px; }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { r: 40; }
+    50% { r: 43; }
+  }
+  
+  /* Voice Wave */
+  .voice-wave {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .voice-wave span {
+    width: 6px;
+    height: 20px;
+    background: #6c63ff;
+    animation: wave 1.2s infinite ease-in-out;
+    border-radius: 3px;
+  }
+  
+  .voice-wave span:nth-child(2) { animation-delay: 0.1s; }
+  .voice-wave span:nth-child(3) { animation-delay: 0.2s; }
+  .voice-wave span:nth-child(4) { animation-delay: 0.3s; }
+  .voice-wave span:nth-child(5) { animation-delay: 0.4s; }
+  
+  @keyframes wave {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(2.2); }
+  }
+  
+  /* Title + Typing */
+  .ai-title {
+    font-size: 2.8em;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .animated-glow {
+    color: #6c63ff;
+    animation: glowText 3s ease-in-out infinite;
+  }
+  
+  @keyframes glowText {
+    0%, 100% { text-shadow: 0 0 8px #b3aaff; }
+    50% { text-shadow: 0 0 20px #a89aff, 0 0 40px #b3aaff; }
+  }
+  
+  .ai-description {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0 40px;
+    max-width: 80%;
+    min-height: 50px;
+  }
+  
+  /* Input */
+  .input {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 2px solid #d6d9e6;
+    border-radius: 50px;
+    padding: 12px 24px;
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.2);
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s;
+  }
+  
+  .input:hover {
+    transform: scale(1.05);
+  }
+  
+  .input .talk {
+    background: none;
+    border: none;
+    color: #6c63ff;
+    font-size: 1.8em;
+    margin-right: 16px;
+    cursor: pointer;
+  }
+  
+  .input .content {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+  }
+  
